@@ -53,7 +53,7 @@ function isEmpty(queue){
 }
 
 function display(queue){
-  if(!queue.first) console.log("Quere is empty")
+  if(!queue.first) console.log("Queue is empty")
   let currNode = queue.first
   while(currNode){
     console.log(currNode.value)
@@ -61,13 +61,45 @@ function display(queue){
   }
 }
 
+function danceQ(){
+  const Que = new Queue()
+  const overflow = new Queue()
+  Que.enqueue('F')
+  Que.enqueue('M')
+  Que.enqueue('M')
+  Que.enqueue('M')
+  Que.enqueue('F')
+  Que.enqueue('M')
+  Que.enqueue('M')
+  Que.enqueue('F')
+
+  while(Que.first){
+    temp = Que.dequeue()
+    if((temp === "M") && (peek(Que) === "F")){
+      console.log(temp, Que.dequeue())
+      //temp = Que.dequeue()
+    }
+    else if(temp === "F" && (peek(Que) === "M")){
+      console.log(temp, Que.dequeue())
+      //temp = Que.dequeue()
+    }
+    else{
+      overflow.enqueue(temp)
+    }
+  }
+  display(overflow)
+
+}
+
+
 function main(){
+  danceQ()
     const starTrekQ = new Queue()
-  starTrekQ.enqueue('1')
-  starTrekQ.enqueue('2')
-  starTrekQ.enqueue('3')
-  starTrekQ.enqueue('4')
-  starTrekQ.enqueue('5')
+  ///  starTrekQ.enqueue('1')
+  ///  starTrekQ.enqueue('2')
+  ///  starTrekQ.enqueue('3')
+  ///  starTrekQ.enqueue('4')
+  ///  starTrekQ.enqueue('5')
   //  starTrekQ.enqueue('Kirk')
   //  starTrekQ.enqueue('Spock')
   //  starTrekQ.enqueue('Uhura')
