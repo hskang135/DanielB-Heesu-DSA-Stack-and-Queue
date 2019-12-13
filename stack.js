@@ -94,7 +94,6 @@ function parentheses(str) {
     else if(test === ')') {
       rcounter++
     }
-    
   }
 
   if(lcounter > rcounter) {
@@ -104,12 +103,12 @@ function parentheses(str) {
   } else {
     return 'There are the same'
   }
-
   console.log(lcounter, rcounter)
-
-
-
 }
+
+// function sortStack() {
+
+// }
 
 function main() {
   const starTrek = new Stack();
