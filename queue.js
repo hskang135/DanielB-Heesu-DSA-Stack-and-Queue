@@ -91,9 +91,32 @@ function danceQ(){
 
 }
 
+function bank() {
+  let bankline = new Queue();
+  bankline.enqueue('Kate')
+  bankline.enqueue('Phone')
+  bankline.enqueue('Mac')
+  bankline.enqueue('Pro')
+  bankline.enqueue('Smile')
+
+  while(bankline.first) {
+    let random = Math.random();
+    if(random < 0.25) {
+      const person = bankline.dequeue();
+      console.log(person+'   left building')
+    } 
+    else {
+      const person = bankline.dequeue();
+      console.log(person+'   back to line')
+      bankline.enqueue(person)
+    }
+  }
+}
+
 
 function main(){
-  danceQ()
+  //danceQ()
+  bank()
     const starTrekQ = new Queue()
   ///  starTrekQ.enqueue('1')
   ///  starTrekQ.enqueue('2')
