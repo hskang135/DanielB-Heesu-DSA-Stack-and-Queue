@@ -122,7 +122,7 @@ function main() {
   // console.log(starTrek);
   // console.log(display(starTrek));
 // console.log(palindromes('dad'))
-console.log(parentheses('() hello () bye () ((('))
+  //console.log(parentheses('() hello () bye () ((('))
 }
 
 main();
