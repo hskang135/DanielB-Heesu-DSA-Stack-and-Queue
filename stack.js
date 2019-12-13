@@ -133,30 +133,30 @@ class QueMaker{
         this.bucketB.push(this.bucketA.pop())
       }
       let temp = this.bucketA.pop()
+
       if((peek(this.bucketB) > temp)){
         this.bucketB.push(temp)
       }
-      else if(temp > peek(this.bucketA)){
+      else if(peek(this.bucketB) > peek(this.bucketA)){
         this.bucketB.push(this.bucketA.pop())
       }
-      else if((peek(this.bucketB) < temp)){
+      else if(temp > peek(this.bucketB)){
         this.bucketA.push(this.bucketB.pop())
         this.bucketB.push(temp)
-        this.bucketB.push(this.bucketA.pop())
       }
     }
-      display(this.bucketB)
+    display(this.bucketB)
   }
 }
 
 function main() {
-  const que = new QueMaker()
-  que.insert(5)
-  que.insert(9)
-  que.insert(2)
-  que.insert(10)
-  que.insert(4)
-  que.sort() //Output : 1 2 3 4 5
+  //  const que = new QueMaker()
+  //  que.insert(8)
+  //  que.insert(9)
+  //  que.insert(5)
+  //  que.insert(10)
+  //  que.insert(2)
+  //  que.sort() //Output : 1 2 3 4 5
   //  que.show()
   //  const starTrek = new Stack();
   //  starTrek.push('Kirk')
