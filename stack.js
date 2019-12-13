@@ -37,3 +37,71 @@ class Stack {
 };
 
 
+function peek(stack) {
+  return stack.top;
+}
+
+function isEmpty(stack) {
+  if(stack.top === null) {
+    return true
+  }
+  return false
+}
+
+function display(stack) {
+  let currNode = stack.top
+  console.log(stack.top)
+  
+  while(currNode) {
+    console.log(currNode.data)
+    currNode = currNode.next
+  }
+  return
+}
+
+function palindromes(str) {
+  str = str.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
+
+  let result = '';
+  let word = new Stack();
+
+  for(let i=0; i<str.length; i++) {
+    word.push(str[i])
+  }
+
+  while(word.next) {
+    console.log('hello')
+    result += word.pop()
+    console.log(result)
+  }
+  
+  
+
+
+}
+
+
+
+
+
+
+
+
+
+function main() {
+  const starTrek = new Stack();
+  starTrek.push('Kirk')
+  starTrek.push('Spock')
+  starTrek.push('McCoy')
+  starTrek.push('Scotty')
+  starTrek.pop()
+  starTrek.pop()
+
+  // console.log(starTrek);
+  // console.log(display(starTrek));
+  console.log(palindromes('racecar'))
+
+}
+
+main();
+
