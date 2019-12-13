@@ -61,33 +61,17 @@ function display(stack) {
 
 function palindromes(str) {
   str = str.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
-
   let result = '';
   let word = new Stack();
-
   for(let i=0; i<str.length; i++) {
     word.push(str[i])
   }
 
-  while(word.next) {
-    console.log('hello')
+  while(word.top) {
     result += word.pop()
-    console.log(result)
   }
-  
-  
-
 
 }
-
-
-
-
-
-
-
-
-
 function main() {
   const starTrek = new Stack();
   starTrek.push('Kirk')
@@ -99,8 +83,7 @@ function main() {
 
   // console.log(starTrek);
   // console.log(display(starTrek));
-  console.log(palindromes('racecar'))
-
+palindromes('racecar')
 }
 
 main();
