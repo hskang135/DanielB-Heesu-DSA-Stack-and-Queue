@@ -71,7 +71,46 @@ function palindromes(str) {
     result += word.pop()
   }
 
+  if(result === str) {
+    return true
+  }
+  return false
 }
+
+function parentheses(str) {
+  let bucket = new Stack();
+
+  for(let i=0; i<str.length; i++) {
+    bucket.push(str[i])
+  }
+  
+  let lcounter = 0;
+  let rcounter = 0;
+  while(bucket.top) {
+    let test = bucket.pop()
+    if(test === '(') {
+      lcounter++
+    }
+    else if(test === ')') {
+      rcounter++
+    }
+    
+  }
+
+  if(lcounter > rcounter) {
+    return `There are ${lcounter - rcounter} more '(' than ')'`  
+  } else if(lcounter < rcounter) {
+    return `There are ${rcounter - lcounter} more ')' than '('`
+  } else {
+    return 'There are the same'
+  }
+
+  console.log(lcounter, rcounter)
+
+
+
+}
+
 function main() {
   const starTrek = new Stack();
   starTrek.push('Kirk')
@@ -83,7 +122,8 @@ function main() {
 
   // console.log(starTrek);
   // console.log(display(starTrek));
-palindromes('racecar')
+// console.log(palindromes('dad'))
+console.log(parentheses('() hello () bye () ((('))
 }
 
 main();
