@@ -25,7 +25,6 @@ class Stack {
     const node = new _Node(data, this.top);
     this.top = node;
   }
-
   pop() {
     /* In order to remove the top of the stack, you have to point
     the pointer to the next item and that next item becomes the
@@ -35,22 +34,19 @@ class Stack {
     return node.data;
   }
 };
-
-
 function peek(stack) {
-  return stack.top;
+  if(stack.top){
+  return stack.top.data;
+  }
 }
-
 function isEmpty(stack) {
   if(stack.top === null) {
     return true
   }
   return false
 }
-
 function display(stack) {
   let currNode = stack.top
-  console.log(stack.top)
   
   while(currNode) {
     console.log(currNode.data)
@@ -110,14 +106,65 @@ function parentheses(str) {
 
 // }
 
+class QueMaker{
+  constructor(){
+    this.bucketA = new Stack()
+    this.bucketB = new Stack()
+  }
+  insert(value){
+    this.bucketA.push(value)
+  }
+  show(){
+    display(this.bucketA)
+  }
+  deque(){
+    while(this.bucketA.top){
+      this.bucketB.push(this.bucketA.pop())
+    }
+    let grabbedItem = this.bucketB.pop()
+    while(this.bucketB.top){
+      this.bucketA.push(this.bucketB.pop())
+    }
+    return grabbedItem
+  }
+  sort(){
+    while(this.bucketA.top){
+      if(isEmpty(this.bucketB)){
+        this.bucketB.push(this.bucketA.pop())
+      }
+      let temp = this.bucketA.pop()
+      if((peek(this.bucketB) > temp)){
+        this.bucketB.push(temp)
+      }
+      else if(temp > peek(this.bucketA)){
+        this.bucketB.push(this.bucketA.pop())
+      }
+      else if((peek(this.bucketB) < temp)){
+        this.bucketA.push(this.bucketB.pop())
+        this.bucketB.push(temp)
+        this.bucketB.push(this.bucketA.pop())
+      }
+    }
+      display(this.bucketB)
+  }
+}
+
 function main() {
-  const starTrek = new Stack();
-  starTrek.push('Kirk')
-  starTrek.push('Spock')
-  starTrek.push('McCoy')
-  starTrek.push('Scotty')
-  starTrek.pop()
-  starTrek.pop()
+  const que = new QueMaker()
+  que.insert(5)
+  que.insert(9)
+  que.insert(2)
+  que.insert(10)
+  que.insert(4)
+  que.sort() //Output : 1 2 3 4 5
+  //  que.show()
+  //  const starTrek = new Stack();
+  //  starTrek.push('Kirk')
+  //  starTrek.push('Spock')
+  //  starTrek.push('McCoy')
+  //  starTrek.push('Scotty')
+  //  starTrek.pop()
+  //  starTrek.pop()
 
   // console.log(starTrek);
   // console.log(display(starTrek));
