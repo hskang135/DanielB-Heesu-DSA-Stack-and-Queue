@@ -22,7 +22,7 @@ class Queue {
 
     if (this.last) {
       this.last.next = node;
-      node.prev = this.last
+      node.prev = this.last /*Created DLL here*/
     }
     this.last = node;
   }
