@@ -73,7 +73,6 @@ function main(){
   //  starTrekQ.enqueue('Uhura')
   //  starTrekQ.enqueue('Sulu')
   //  starTrekQ.enqueue('Checkov')
-  console.log(starTrekQ.first.next)
   //  starTrekQ.dequeue()
   //  starTrekQ.dequeue()
 
